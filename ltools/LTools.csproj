@@ -7,8 +7,8 @@
     <ProjectGuid>{C99DEAFB-5882-4AF1-87E7-4F3420638245}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AttitudeDebugger</RootNamespace>
-    <AssemblyName>Simulator</AssemblyName>
+    <RootNamespace>ltools</RootNamespace>
+    <AssemblyName>uart-tool</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

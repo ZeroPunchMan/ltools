@@ -18,11 +18,10 @@ namespace UART_demo
 {
     public partial class Form1 : Form
     {
-        readonly int[] allBaudrates = { 2400, 4800, 9600, 38400, 57600, 74880, 115200 };  //波特率
+        readonly int[] allBaudrates = { 2400, 4800, 9600, 38400, 57600, 74880, 115200, 115200 * 2, 115200 * 5 };  //波特率
         readonly int[] allDataBits = { 5, 6, 7, 8 };    //数据位数
         readonly float[] allStopBits = { 1, 1.5f, 2 };    //停止位数
-        readonly string strPortNotOpen = "串口未打开";
-        readonly string strCfgFileName = "Simulator.cfg";
+        readonly string strCfgFileName = "uart-tool.cfg";
 
         PortCfg config = null;
         SerialPort serialPort = null;
@@ -142,6 +141,7 @@ namespace UART_demo
                 else
                 {
                     MessageBox.Show("打开串口失败");
+                    buttonOpenPort.Text = "打开串口";
                 }
             }
 
