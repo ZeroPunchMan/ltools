@@ -241,7 +241,7 @@ namespace UART_demo
                 this.textBoxReceive.AppendText(sb.ToString());
             }
 
-            if (checkBoxNewLine.Checked)
+            if (checkBoxRecvNewLine.Checked)
                 this.textBoxReceive.AppendText(Environment.NewLine);
         }
 
@@ -260,6 +260,10 @@ namespace UART_demo
             int tmp = comboBoxPort.SelectedIndex;
             comboBoxPort.Items.Clear();
             comboBoxPort.Items.AddRange(SerialPort.GetPortNames());
+
+            if (comboBoxPort.Items.Count <= tmp)
+                tmp = -1;
+
             comboBoxPort.SelectedIndex = tmp;
         }
 
@@ -315,7 +319,16 @@ namespace UART_demo
                 {
                     sendData = System.Text.Encoding.ASCII.GetBytes(textBoxSend.Text);
                 }
-                serialPort.Write(sendData, 0, sendData.Length);
+
+                if (sendData != null)
+                {
+                    serialPort.Write(sendData, 0, sendData.Length);
+                    if (checkBoxSendNewLine.Checked)
+                    {
+                        byte[] newLine = { (byte)'\r', (byte)'\n' };
+                        serialPort.Write(newLine, 0, newLine.Length);
+                    }
+                }
             }
             else
             {
