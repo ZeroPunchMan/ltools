@@ -226,6 +226,13 @@ namespace UART_demo
         //接收数据处理
         void AppendRecvData(byte[] data)
         {
+            if (this.checkBoxDisTime.Checked)
+            {
+                DateTime now = DateTime.Now;
+                string s = string.Format("{0:00}:{1:00}:{2:00}.{3:000}: ", now.Hour, now.Minute, now.Second, now.Millisecond);
+                this.textBoxReceive.AppendText(s);
+            }
+
             if (!this.checkBoxDisHex.Checked)
             {   //字符串显示
                 string s = System.Text.Encoding.ASCII.GetString(data);
@@ -241,7 +248,7 @@ namespace UART_demo
                 this.textBoxReceive.AppendText(sb.ToString());
             }
 
-            if (checkBoxRecvNewLine.Checked)
+            if (checkBoxRecvNewLine.Checked || this.checkBoxDisTime.Checked)
                 this.textBoxReceive.AppendText(Environment.NewLine);
         }
 

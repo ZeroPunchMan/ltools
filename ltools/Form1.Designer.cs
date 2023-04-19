@@ -41,6 +41,7 @@
             this.checkBoxSendHex = new System.Windows.Forms.CheckBox();
             this.checkBoxRecvNewLine = new System.Windows.Forms.CheckBox();
             this.checkBoxSendNewLine = new System.Windows.Forms.CheckBox();
+            this.checkBoxDisTime = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBoxReceive
@@ -116,7 +117,7 @@
             // 
             this.checkBoxDisHex.AutoSize = true;
             this.checkBoxDisHex.Location = new System.Drawing.Point(590, 326);
-            this.checkBoxDisHex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxDisHex.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxDisHex.Name = "checkBoxDisHex";
             this.checkBoxDisHex.Size = new System.Drawing.Size(66, 16);
             this.checkBoxDisHex.TabIndex = 37;
@@ -147,7 +148,7 @@
             // 
             this.checkBoxSendHex.AutoSize = true;
             this.checkBoxSendHex.Location = new System.Drawing.Point(587, 459);
-            this.checkBoxSendHex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxSendHex.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxSendHex.Name = "checkBoxSendHex";
             this.checkBoxSendHex.Size = new System.Drawing.Size(66, 16);
             this.checkBoxSendHex.TabIndex = 40;
@@ -158,7 +159,7 @@
             // 
             this.checkBoxRecvNewLine.AutoSize = true;
             this.checkBoxRecvNewLine.Location = new System.Drawing.Point(511, 326);
-            this.checkBoxRecvNewLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxRecvNewLine.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxRecvNewLine.Name = "checkBoxRecvNewLine";
             this.checkBoxRecvNewLine.Size = new System.Drawing.Size(72, 16);
             this.checkBoxRecvNewLine.TabIndex = 41;
@@ -175,11 +176,23 @@
             this.checkBoxSendNewLine.Text = "回车换行";
             this.checkBoxSendNewLine.UseVisualStyleBackColor = true;
             // 
+            // checkBoxDisTime
+            // 
+            this.checkBoxDisTime.AutoSize = true;
+            this.checkBoxDisTime.Location = new System.Drawing.Point(424, 326);
+            this.checkBoxDisTime.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxDisTime.Name = "checkBoxDisTime";
+            this.checkBoxDisTime.Size = new System.Drawing.Size(72, 16);
+            this.checkBoxDisTime.TabIndex = 43;
+            this.checkBoxDisTime.Text = "显示时间";
+            this.checkBoxDisTime.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 490);
+            this.Controls.Add(this.checkBoxDisTime);
             this.Controls.Add(this.checkBoxSendNewLine);
             this.Controls.Add(this.checkBoxRecvNewLine);
             this.Controls.Add(this.checkBoxSendHex);
@@ -217,6 +230,7 @@
         private System.Windows.Forms.CheckBox checkBoxSendHex;
         private System.Windows.Forms.CheckBox checkBoxRecvNewLine;
         private System.Windows.Forms.CheckBox checkBoxSendNewLine;
+        private System.Windows.Forms.CheckBox checkBoxDisTime;
     }
 }
 
