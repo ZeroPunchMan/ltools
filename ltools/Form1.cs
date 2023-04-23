@@ -226,6 +226,9 @@ namespace UART_demo
         //接收数据处理
         void AppendRecvData(byte[] data)
         {
+            if (data.Length == 0)
+                return;
+
             if (this.checkBoxDisTime.Checked)
             {
                 DateTime now = DateTime.Now;
