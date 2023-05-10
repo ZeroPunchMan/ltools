@@ -222,6 +222,7 @@ namespace UART_demo
         }
 
 
+        DateTime lastRecvTime = DateTime.Now;
         delegate void AppendNewReceivedData(byte[] data);
         //接收数据处理
         void AppendRecvData(byte[] data)
@@ -229,11 +230,30 @@ namespace UART_demo
             if (data.Length == 0)
                 return;
 
-            if (this.checkBoxDisTime.Checked)
+            TimeSpan span = DateTime.Now - lastRecvTime;
+            lastRecvTime = DateTime.Now;
+
+            int newLineSpan = 50;
+            try
             {
-                DateTime now = DateTime.Now;
-                string s = string.Format("{0:00}:{1:00}:{2:00}.{3:000}: ", now.Hour, now.Minute, now.Second, now.Millisecond);
-                this.textBoxReceive.AppendText(s);
+                newLineSpan = int.Parse(textBoxNewLineSpan.Text);
+            }
+            catch
+            {
+
+            }
+
+            if (span.Milliseconds >= newLineSpan)
+            {
+                if (checkBoxRecvNewLine.Checked || this.checkBoxDisTime.Checked)
+                    this.textBoxReceive.AppendText(Environment.NewLine);
+
+                if (this.checkBoxDisTime.Checked)
+                {
+                    DateTime now = DateTime.Now;
+                    string s = string.Format("{0:00}:{1:00}:{2:00}.{3:000}: ", now.Hour, now.Minute, now.Second, now.Millisecond);
+                    this.textBoxReceive.AppendText(s);
+                }
             }
 
             if (!this.checkBoxDisHex.Checked)
@@ -251,8 +271,8 @@ namespace UART_demo
                 this.textBoxReceive.AppendText(sb.ToString());
             }
 
-            if (checkBoxRecvNewLine.Checked || this.checkBoxDisTime.Checked)
-                this.textBoxReceive.AppendText(Environment.NewLine);
+            //if (this.checkBoxDisTime.Checked)
+            //    this.textBoxReceive.AppendText(Environment.NewLine);
         }
 
         //接收回调

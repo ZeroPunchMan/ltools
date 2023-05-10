@@ -42,6 +42,8 @@
             this.checkBoxRecvNewLine = new System.Windows.Forms.CheckBox();
             this.checkBoxSendNewLine = new System.Windows.Forms.CheckBox();
             this.checkBoxDisTime = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxNewLineSpan = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxReceive
@@ -158,7 +160,7 @@
             // checkBoxRecvNewLine
             // 
             this.checkBoxRecvNewLine.AutoSize = true;
-            this.checkBoxRecvNewLine.Location = new System.Drawing.Point(511, 326);
+            this.checkBoxRecvNewLine.Location = new System.Drawing.Point(328, 326);
             this.checkBoxRecvNewLine.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxRecvNewLine.Name = "checkBoxRecvNewLine";
             this.checkBoxRecvNewLine.Size = new System.Drawing.Size(72, 16);
@@ -179,7 +181,7 @@
             // checkBoxDisTime
             // 
             this.checkBoxDisTime.AutoSize = true;
-            this.checkBoxDisTime.Location = new System.Drawing.Point(424, 326);
+            this.checkBoxDisTime.Location = new System.Drawing.Point(404, 326);
             this.checkBoxDisTime.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxDisTime.Name = "checkBoxDisTime";
             this.checkBoxDisTime.Size = new System.Drawing.Size(72, 16);
@@ -187,11 +189,30 @@
             this.checkBoxDisTime.Text = "显示时间";
             this.checkBoxDisTime.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(215, 327);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "换行时间";
+            // 
+            // textBoxNewLineSpan
+            // 
+            this.textBoxNewLineSpan.Location = new System.Drawing.Point(274, 324);
+            this.textBoxNewLineSpan.Name = "textBoxNewLineSpan";
+            this.textBoxNewLineSpan.Size = new System.Drawing.Size(40, 21);
+            this.textBoxNewLineSpan.TabIndex = 45;
+            this.textBoxNewLineSpan.Text = "50";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 490);
+            this.Controls.Add(this.textBoxNewLineSpan);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxDisTime);
             this.Controls.Add(this.checkBoxSendNewLine);
             this.Controls.Add(this.checkBoxRecvNewLine);
@@ -231,6 +252,8 @@
         private System.Windows.Forms.CheckBox checkBoxRecvNewLine;
         private System.Windows.Forms.CheckBox checkBoxSendNewLine;
         private System.Windows.Forms.CheckBox checkBoxDisTime;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxNewLineSpan;
     }
 }
 
