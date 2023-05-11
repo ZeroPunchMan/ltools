@@ -243,7 +243,7 @@ namespace UART_demo
 
             }
 
-            if (span.Milliseconds >= newLineSpan)
+            if (span.TotalMilliseconds >= newLineSpan)
             {
                 if (checkBoxRecvNewLine.Checked || this.checkBoxDisTime.Checked)
                     this.textBoxReceive.AppendText(Environment.NewLine);
