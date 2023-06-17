@@ -204,7 +204,7 @@
             this.textBoxNewLineSpan.Name = "textBoxNewLineSpan";
             this.textBoxNewLineSpan.Size = new System.Drawing.Size(40, 21);
             this.textBoxNewLineSpan.TabIndex = 45;
-            this.textBoxNewLineSpan.Text = "50";
+            this.textBoxNewLineSpan.Text = "10";
             // 
             // Form1
             // 

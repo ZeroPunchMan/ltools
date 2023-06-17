@@ -185,6 +185,10 @@ namespace UART_demo
             try
             {
                 serialPort.Open();
+                serialPort.RtsEnable = true;
+                //serialPort.CtsHolding
+                //serialPort.DsrHolding
+                serialPort.DtrEnable = true;
             }
             catch
             {
