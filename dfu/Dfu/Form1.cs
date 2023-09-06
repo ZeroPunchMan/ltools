@@ -97,6 +97,7 @@ namespace DfuTool
                 }
                 else
                 {
+                    buttonOpenPort.Text = "打开串口";
                     MessageBox.Show("打开串口失败");
                 }
             }
