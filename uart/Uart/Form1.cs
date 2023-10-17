@@ -234,8 +234,9 @@ namespace UART_demo
             if (data.Length == 0)
                 return;
 
-            TimeSpan span = DateTime.Now - lastRecvTime;
-            lastRecvTime = DateTime.Now;
+            DateTime now = DateTime.Now;
+            TimeSpan span = now - lastRecvTime;
+            lastRecvTime = now;
 
             int newLineSpan = 50;
             try
@@ -254,7 +255,6 @@ namespace UART_demo
 
                 if (this.checkBoxDisTime.Checked)
                 {
-                    DateTime now = DateTime.Now;
                     string s = string.Format("{0:00}:{1:00}:{2:00}.{3:000}: ", now.Hour, now.Minute, now.Second, now.Millisecond);
                     this.textBoxReceive.AppendText(s);
                 }
