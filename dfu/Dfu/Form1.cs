@@ -286,8 +286,7 @@ namespace DfuTool
         {
             if (portOpened)
             {
-                for (int i = 0; i < 20; i++)
-                    SgpProtocol.Parser.SendPacket(serialPort.Write, SgpProtocol.SgpCmd.Dfu, SgpProtocol.SgpSubCmd.DfuBootVer, null, 0, 0);
+                SgpProtocol.Parser.SendPacket(serialPort.Write, SgpProtocol.SgpCmd.Dfu, SgpProtocol.SgpSubCmd.DfuBootVer, null, 0, 0);
             }
             else
             {
@@ -315,8 +314,7 @@ namespace DfuTool
         {
             if (portOpened)
             {
-                for (int i = 0; i < 20; i++)
-                    SgpProtocol.Parser.SendPacket(serialPort.Write, SgpProtocol.SgpCmd.Dfu, SgpProtocol.SgpSubCmd.AppVer, null, 0, 0);
+                SgpProtocol.Parser.SendPacket(serialPort.Write, SgpProtocol.SgpCmd.Dfu, SgpProtocol.SgpSubCmd.AppVer, null, 0, 0);
             }
             else
             {
