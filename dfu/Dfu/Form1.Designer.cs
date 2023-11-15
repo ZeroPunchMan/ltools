@@ -40,6 +40,7 @@
             this.buttonSelectSign = new System.Windows.Forms.Button();
             this.textBoxSignPath = new System.Windows.Forms.TextBox();
             this.buttonBootVersion = new System.Windows.Forms.Button();
+            this.buttonAppVersion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxPort
@@ -92,7 +93,7 @@
             // 
             // buttonUpgrade
             // 
-            this.buttonUpgrade.Location = new System.Drawing.Point(282, 462);
+            this.buttonUpgrade.Location = new System.Drawing.Point(407, 462);
             this.buttonUpgrade.Name = "buttonUpgrade";
             this.buttonUpgrade.Size = new System.Drawing.Size(75, 23);
             this.buttonUpgrade.TabIndex = 17;
@@ -157,11 +158,22 @@
             this.buttonBootVersion.UseVisualStyleBackColor = true;
             this.buttonBootVersion.Click += new System.EventHandler(this.buttonBootVersion_Click);
             // 
+            // buttonAppVersion
+            // 
+            this.buttonAppVersion.Location = new System.Drawing.Point(297, 462);
+            this.buttonAppVersion.Name = "buttonAppVersion";
+            this.buttonAppVersion.Size = new System.Drawing.Size(75, 23);
+            this.buttonAppVersion.TabIndex = 57;
+            this.buttonAppVersion.Text = "APP版本";
+            this.buttonAppVersion.UseVisualStyleBackColor = true;
+            this.buttonAppVersion.Click += new System.EventHandler(this.buttonAppVersion_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 497);
+            this.Controls.Add(this.buttonAppVersion);
             this.Controls.Add(this.buttonBootVersion);
             this.Controls.Add(this.buttonSelectSign);
             this.Controls.Add(this.textBoxSignPath);
@@ -196,6 +208,7 @@
         private System.Windows.Forms.Button buttonSelectSign;
         private System.Windows.Forms.TextBox textBoxSignPath;
         private System.Windows.Forms.Button buttonBootVersion;
+        private System.Windows.Forms.Button buttonAppVersion;
     }
 }
 

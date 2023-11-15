@@ -26,11 +26,13 @@ namespace SgpProtocol
         DfuData = 0x71,
         DfuVerify = 0x72,
         DfuBootVer = 0x73,
+        AppVer = 0x74,
 
         DfuReady = 0x70 | 0x80,
         DfuDataRsp = 0x71 | 0x80,
         DfuVerifyRsp = 0x72 | 0x80,
         DfuBootVerRsp = 0x73 | 0x80,
+        AppVerRsp = 0x74 | 0x80,
 
         DfuError = 0x7f | 0x80,
     }

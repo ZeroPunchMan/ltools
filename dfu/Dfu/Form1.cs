@@ -310,6 +310,19 @@ namespace DfuTool
                 SaveConfiguration();
             }
         }
+
+        private void buttonAppVersion_Click(object sender, EventArgs e)
+        {
+            if (portOpened)
+            {
+                for (int i = 0; i < 20; i++)
+                    SgpProtocol.Parser.SendPacket(serialPort.Write, SgpProtocol.SgpCmd.Dfu, SgpProtocol.SgpSubCmd.AppVer, null, 0, 0);
+            }
+            else
+            {
+                MessageBox.Show(strPortNotOpen);
+            }
+        }
     }
 
 

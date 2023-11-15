@@ -26,7 +26,7 @@ namespace DfuTool
         {
             SgpPacket msg = eventArg as SgpPacket;
             //bootloader版本
-            if (msg.cmd != SgpCmd.Dfu || msg.subCmd != SgpSubCmd.DfuBootVerRsp)
+            if (msg.cmd != SgpCmd.Dfu || (msg.subCmd != SgpSubCmd.DfuBootVerRsp && msg.subCmd != SgpSubCmd.AppVerRsp))
                 return;
 
             if (msg.data != null && msg.data.Length == 14)    //版本号长度,硬编码了
@@ -44,7 +44,11 @@ namespace DfuTool
                 sb.Append(revision.ToString());
 
                 string s = sb.ToString();
-                DebugLog("固件版本 " + s);
+
+                if (msg.subCmd == SgpSubCmd.DfuBootVerRsp)
+                    DebugLog("BOOT版本 " + s);
+                else if (msg.subCmd == SgpSubCmd.AppVerRsp)
+                    DebugLog("APP版本 " + s);
             }
         }
 
