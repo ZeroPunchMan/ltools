@@ -27,7 +27,7 @@ namespace SgpProtocol
             binFileStream = File.OpenRead(filePath);
 
             info = new FileInfo(signPath);
-            if(info.Length != 64)
+            if (info.Length != 64)
                 throw new Exception("Invalid signature");
 
             signature = File.ReadAllBytes(signPath);
@@ -85,9 +85,9 @@ namespace SgpProtocol
         {
             TimeSpan span = DateTime.Now - lastUpdateTime;
 
-            if(TimeoutCheck((int)span.TotalMilliseconds)) //超时监测
+            if (TimeoutCheck((int)span.TotalMilliseconds)) //超时监测
             { //todo 超时重发
-                
+
             }
             switch (dfuStatus)
             {
@@ -282,5 +282,7 @@ namespace SgpProtocol
 
             StatusToError();
         }
+
+        
     }
 }

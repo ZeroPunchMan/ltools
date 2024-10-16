@@ -34,6 +34,7 @@ namespace SgpProtocol
         DfuBootVerRsp = 0x73 | 0x80,
         AppVerRsp = 0x74 | 0x80,
 
+        DfuTest = 0x7e | 0x80,
         DfuError = 0x7f | 0x80,
     }
 

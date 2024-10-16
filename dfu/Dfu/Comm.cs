@@ -15,11 +15,13 @@ namespace DfuTool
         private void CommInit()
         {
             EventManager.AddListener(EventId.ProtocolRecvMsg, (int)SgpCmd.Dfu, OnRecvVersion);
+            EventManager.AddListener(EventId.ProtocolRecvMsg, (int)SgpCmd.Dfu, OnRecvTest);
         }
 
         private void CommExit()
         {
             EventManager.RemoveListener(EventId.ProtocolRecvMsg, (int)SgpCmd.Dfu, OnRecvVersion);
+            EventManager.RemoveListener(EventId.ProtocolRecvMsg, (int)SgpCmd.Dfu, OnRecvTest);
         }
 
         void OnRecvVersion(System.Object sender, System.Object eventArg)
@@ -67,6 +69,17 @@ namespace DfuTool
             UInt32 timestamp = (UInt32)ts.TotalSeconds;
             return timestamp;
         }
+        void OnRecvTest(System.Object sender, System.Object eventArg)
+        {
+            SgpPacket pack = eventArg as SgpPacket;
+            if (pack == null)
+                return;
 
+            if (pack.subCmd != SgpSubCmd.DfuTest)
+                return;
+
+            string info = System.Text.Encoding.ASCII.GetString(pack.data, 0, pack.data.Length);
+            DebugLog(string.Format("test: {0}", info));
+        }
     }
 }
