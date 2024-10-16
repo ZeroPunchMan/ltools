@@ -31,6 +31,8 @@ namespace SgpProtocol
                 throw new Exception("Invalid signature");
 
             signature = File.ReadAllBytes(signPath);
+            if(signature.Length != 64)
+                throw new Exception("Sig too large");
 
             this.sendMethod = sendMethod;
             this.logMethod = logMethod;
