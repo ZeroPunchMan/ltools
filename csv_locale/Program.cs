@@ -2,8 +2,9 @@
 using CsvHelper;
 using System.Diagnostics;
 using System.Globalization;
+using System.Text;
 
-
+//csvhelper 33.1.0
 public class AssetInfo
 {
     public string? ID { get; set; }
@@ -14,6 +15,37 @@ public class AssetInfo
 
 public static class Program
 {
+    public static string? Escape(string? input)
+    {
+        if (input == null)
+            return null;
+
+        var _builder = new StringBuilder();
+
+        foreach (char c in input)
+        {
+            switch (c)
+            {
+                case '\\': _builder.Append("\\\\"); break;
+                case '\"': _builder.Append("\\\""); break;
+                case '\'': _builder.Append("\\\'"); break;
+                case '\0': _builder.Append("\\0"); break;
+                case '\a': _builder.Append("\\a"); break;
+                case '\b': _builder.Append("\\b"); break;
+                case '\f': _builder.Append("\\f"); break;
+                case '\n': _builder.Append("\\n"); break;
+                case '\r': _builder.Append("\\r"); break;
+                case '\t': _builder.Append("\\t"); break;
+                case '\v': _builder.Append("\\v"); break;
+                default:
+                    _builder.Append(c);
+                    break;
+            }
+        }
+
+        return _builder.ToString();
+    }
+
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
@@ -41,9 +73,9 @@ public static class Program
         while (csvReader.Read())
         {
             var record = csvReader.GetRecord<AssetInfo>();
-            fId.WriteLine($"    {record.ID} = {index},");
-            fChi.WriteLine($"        @\"{record.Chinese}\",");
-            fEng.WriteLine($"        @\"{record.English}\",");
+            fId.WriteLine($"    {record.ID}= {index},");
+            fChi.WriteLine($"        \"{Escape(record.Chinese)}\", // {record.ID}");
+            fEng.WriteLine($"        \"{Escape(record.English)}\", // {record.ID}");
 
             index++;
         }
