@@ -56,12 +56,15 @@ public static class Program
         StreamWriter fChi = File.CreateText(dir+$"\\StringAssetChi_{name}.cs");
         StreamWriter fEng = File.CreateText(dir+$"\\StringAssetEng_{name}.cs");
 
+        fId.WriteLine($"//generated form {name}.csv");
         fId.WriteLine($"public enum StrAssetId_{name}");
         fId.WriteLine("{");
 
+        fChi.WriteLine($"//generated form {name}.csv");
         fChi.WriteLine($"public static partial class StringAsset_{name}");
         fChi.WriteLine("{\r\nstatic string[] chinese =\r\n    {");
 
+        fEng.WriteLine($"//generated form {name}.csv");
         fEng.WriteLine($"public static partial class StringAsset_{name}");
         fEng.WriteLine("{\r\nstatic string[] english =\r\n    {");
 
